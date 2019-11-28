@@ -1,5 +1,5 @@
 function calender(y){
-    var w = new Date(y,0).getDate();
+    var w = new Date(y,0).getDay();
 
     var html = '<div class="box">';
     
