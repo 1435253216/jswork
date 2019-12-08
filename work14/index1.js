@@ -1,3 +1,4 @@
+
 var lamp = {
     red: {
         obj: document.getElementById('red'),
@@ -33,7 +34,7 @@ var now = lamp.green;
 var timeout = now.timeout;
 lamp.changeStyle(now.style);
 count.change(timeout);
-setInterval(function(){
+setInterval(function() {
     if (--timeout <= 0){
     now = lamp[now.next];
     timeout = now.timeout;
