@@ -31,8 +31,26 @@ function getRegMsg(name,tips) {
             msg = {'success':'密码输入正确', 'error':tips};
             break;
         case 'repwd':
-            var  con = doc
-                
+            var  con = document.getElementsByTagName('input')[1].value;
+            reg = RegExp("^" + con + "$");
+            msg = {'success': '两次密码输入正确', 'error': '两次输入的密码不一致'};
+            break;
+        case 'tel':
+            reg = /^1[34578]\d{9}$/;
+            msg = {'success': '手机号输入正确', 'error': tips};
+            break;
+            case 'email':
+                reg = /^(\w+(\_|\-|\.)*)+@(\w+(\-)?)+(\.\w{2,})+$/;
+                msg = {'success': '邮箱输入正确','error':tips};
+                break;
             }
+            return {'reg': reg, 'msg': msg};
     }
-}
+    function success(obj,msg) {
+        obj.className = 'success';
+        obj.innerHTML = msg;
+    }
+    function error(obj,msg) {
+        obj.className = 'error';
+        obj.innerHTML = msg + '，请重新输入';
+    }
